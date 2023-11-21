@@ -18,7 +18,7 @@ class floatlayoutm(FloatLayout):
 
 class app(App):
     def build(self):
-        return floatlayoutm()\
+        return floatlayoutm()
         
 if __name__=='__main__':
     app().run()

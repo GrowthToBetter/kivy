@@ -1,0 +1,19 @@
+#:kivy 2.1.0
+
+<main>:
+    FloatLayout:
+        Button:
+            text:'submit'
+            size_hint:0.2,0.2
+            pos_hint:{'x':0.3,'y':0.1}
+            on_press: root.input()
+        GridLayout:
+            pos_hint:{'x':0.3,'y':0.3}
+            size_hint: 0.5,0.3
+            rows:2
+            Label:
+                id:none
+                text:'who is your name?'
+            TextInput:
+                multiline:False
+                id:txt

@@ -56,22 +56,19 @@ class MyApp(App):
         return layout
 
     def request_location_permission(self, layout):
-        if platform == 'android':
-            PythonActivity = autoclass('org.kivy.android.PythonActivity')
-            ActivityCompat = autoclass('android.support.v4.app.ActivityCompat')
-            Permission = autoclass('android.Manifest$permission')
+    
+        PythonActivity = autoclass('org.kivy.android.PythonActivity')
+        ActivityCompat = autoclass('android.support.v4.app.ActivityCompat')
+        Permission = autoclass('android.Manifest$permission')
 
-            def callback(requestCode, permissions, grantResults):
-                if grantResults[0] == 0:  # 0 means PERMISSION_GRANTED
-                    self.root.on_permission_granted()
-                else:
-                    self.root.on_permission_denied('Izin lokasi tidak diberikan')
-
-            activity = PythonActivity.mActivity
-            permission = Permission.ACCESS_FINE_LOCATION
-            ActivityCompat.requestPermissions(activity, [permission], 1, callback)
-        else:
-            self.root.on_permission_denied('Aplikasi ini hanya berjalan di Android')
+        def callback(requestCode, permissions, grantResults):
+            if grantResults[0] == 0:  # 0 means PERMISSION_GRANTED
+                self.root.on_permission_granted()
+            else:
+                self.root.on_permission_denied('Izin lokasi tidak diberikan')
+        activity = PythonActivity.mActivity
+        permission = Permission.ACCESS_FINE_LOCATION
+        ActivityCompat.requestPermissions(activity, [permission], 1, callback)
 
     def on_pause(self):
         return True

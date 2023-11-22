@@ -1,0 +1,48 @@
+#:kivy 2.1.0
+#:import Factory kivy.factory.Factory
+
+<GUI>:
+    Button:
+        text:'>'
+        size_hint: 0.1,0.1
+        pos_hint: {'x': 0.5, 'y':0.1}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color=(0.78, 0.2, 0.2, 1)
+        on_release: self.background_color =( 0.78,0,0.2,1)
+        on_press: root.r_move()
+    Button:
+        text:'<'
+        size_hint: 0.1,0.1
+        pos_hint: {'x': 0.14, 'y':0.1}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color=(0.78, 0.2, 0.2, 1)
+        on_release: self.background_color =( 0.78,0,0.2,1)
+        on_press: root.l_move()
+    Button:
+        text:'^'
+        size_hint: 0.1,0.1
+        pos_hint: {'x': 0.26, 'y':0.1}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color=(0.78, 0.2, 0.2, 1)
+        on_release: self.background_color =( 0.78,0,0.2,1)
+        on_press: root.u_move()
+    Button:
+        text:'v'
+        size_hint: 0.1,0.1
+        pos_hint: {'x': 0.38, 'y':0.1}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color=(0.78, 0.2, 0.2, 1)
+        on_release: self.background_color =( 0.78,0,0.2,1)
+        on_press: root.d_move()
+    Label:
+        id:obj2
+        text:''
+        size_hint: 0.3,0.1
+        pos_hint: {'x':0.5, 'y':0.75}
+        background_color: (1,1,1,1)
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size

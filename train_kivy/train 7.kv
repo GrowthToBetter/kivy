@@ -1,0 +1,45 @@
+#:kivy 2.1.0
+<rlayout>:
+    Button:
+        text: '>'
+        size_hint: 0.1, 0.1
+        pos_hint: {'center_x': 0.242, 'center_y': 0.12}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color = (0.78, 0.2, 0.2, 1)
+        on_release: self.background_color = (0.78, 0, 0.2, 1)
+        on_press: root.r_move()
+    Button:
+        text:'<'
+        size_hint: 0.1,0.1
+        pos_hint: {'center_x': 0.015, 'center_y': 0.12}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color = (0.78, 0.2, 0.2, 1)
+        on_release: self.background_color = (0.78, 0, 0.2, 1)
+        on_press: root.l_move()
+    Button:
+        text:'^'
+        size_hint: 0.1,0.1
+        pos_hint: {'center_x':0.128, 'center_y':0.20}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color = (0.78, 0.2, 0.2, 1)
+        on_release: self.background_color = (0.78, 0, 0.2, 1)
+        on_press: root.u_move()
+    Button:
+        text:'v'
+        size_hint: 0.1,0.1
+        pos_hint: {'center_x':0.128,'center_y':0.028}
+        background_color: (0.78, 0, 0.2, 1)
+        on_press: self.background_color = (0.78, 0.2, 0.2, 1)
+        on_release: self.background_color = (0.78, 0, 0.2, 1)
+        on_press: root.d_move()
+    Label:
+        id:mobject
+        text:''
+        size_hint: 0.3,0.1
+        pos_hint: {'center_x':0.5,'center_y':0.75}
+        canvas.before:
+            Color: 
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size

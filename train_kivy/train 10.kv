@@ -1,0 +1,27 @@
+# #:kivy 2.1.0
+# #import Button kivy.uix.button
+
+
+
+
+<floatla>:
+    Button:
+        text:'open'
+        on_release: root.open()
+        size_hint: 0.3,0.3
+        pos_hint: {'x':0.6,'y':0.6}
+    Label:
+        text: 'hhh'
+        size_hint: 0.2,1
+<Popup>:
+    title: 'this popup'
+    size_hint: 0.1,0.278
+    pos_hint: {'x': 0.2,'y':0.25}
+    BoxLayout:
+        orientation:'vertical'
+        cols: 2
+        Button:
+            text:'clooose'
+            on_release: root.close()
+        Label:
+            text: 'affa banh'

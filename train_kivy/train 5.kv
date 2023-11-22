@@ -1,0 +1,18 @@
+#:kivy 2.1.0
+<Grid>:
+    rows: 6
+    Button:
+        text:"click there!!"
+        on_press: self.background_color=(0,255,80)
+        on_release: self.background_color=(255,0,255)
+        size_hint: 0.35,0.1
+        on_release: root.change_label()
+    Button:
+        text: "back!!"
+        on_press: self.background_color=(0,0,200)
+        on_release: self.background_color=(0,80,90)
+        size_hint: 0.35, 0.1
+        on_release: root.back()
+    Label:
+        id: label1
+        text: "have fun !!"

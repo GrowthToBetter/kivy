@@ -1,0 +1,25 @@
+#:kivy 2.1.0
+#import Factory kivy.factory.Factory
+
+<main>:
+    orientation: 'vertical'
+    Label:
+        text:'test'
+        size_hint: 0.5,0.5
+        pos_hint: {'x': 0.2,'y':0.1}
+    Button:
+        text:'open'
+        background_color: (0,1,1,1)
+        size_hint: 0.2,0.2
+        pos_hint: {'x': 0.8,'y':0.1}
+        on_release: root.open()
+    
+<this_popup>:
+    Label:
+        text: 'affa bannh'
+        background_color: (1,1,1,1)
+        size_hint: 0.5,0.5
+    Button:
+        text: 'close'
+        pos_hint: {'x':0.5,'y':0.5}
+        on_release: root.close()

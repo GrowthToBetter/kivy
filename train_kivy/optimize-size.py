@@ -19,9 +19,9 @@ class main(FloatLayout):
         self.add_widget(Label(
             text=f"your name is {self.name}",
             size_hint=(None,None),
-            width=100,
+            width=150,
             height=25,
-            pos_hint={'x':0.35,'y':0.25}
+            pos_hint={'x':0.4,'y':0.55}
             ))
         
 class app(App):

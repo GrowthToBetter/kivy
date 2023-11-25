@@ -1,0 +1,42 @@
+#:kivy 2.1.0
+<main>:
+    
+    GridLayout:
+        rows: 3
+        cols: 2
+        row_force_default: True
+        col_force_default: True
+        row_default_height: 150
+        col_default_width: 300
+        pos_hint: {'x':0.3, 'y':-0.3}
+        id: wrap
+        name: name.text
+        hobby: hobby.text
+        profesi: profesi.text
+        GridLayout:
+            rows: 3
+            Label:
+                text:'name'
+            TextInput:
+                id: name
+                multiline: False
+            Label:
+                text:'hobby'
+            TextInput:
+                id: hobby
+                multiline: False
+            Label:
+                text:'profesi'
+            TextInput:
+                id: profesi
+                multiline: False
+    FloatLayout:
+        Button:
+            text:'submit'
+            on_release: root.press()
+            size_hint_x:None
+            size_hint_y:None
+            width: 150
+            height: 50
+            pos_hint: {'x':0.4, 'y':0.35}
+            background_color: ((39/100),1,0,1)

@@ -1,0 +1,28 @@
+#:kivy 2.1.0
+<main>:
+    BoxLayout:
+        orientation:'vertical'
+        size: root.width, root.height
+        padding: 50
+        FloatLayout:
+            id:wrap
+            GridLayout:
+                rows: 2
+                size_hint: 0.5, 0.2
+                pos_hint: {'center_x':0.5,'center_y': 0.5}
+                GridLayout:
+                    rows: 2
+                    Label:
+                        text:'name'
+                    TextInput:
+                        id:name
+                        multiline: False
+                    Label:
+                        text: 'password'
+                    TextInput:
+                        id:pw
+                        multiline: False
+                Button:
+                    text:'submit'
+                    background_color: (0,(58/100),1,1)
+                    on_press: root.press()

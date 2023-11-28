@@ -1,0 +1,70 @@
+#:kivy 2.1.0
+<main>:
+    BoxLayout:
+        orientation:'vertical'
+        padding:10
+        spacing:10
+        size: root.width,root.height
+        FloatLayout:
+            id:warp
+            GridLayout:
+                cols:1
+                size_hint: 0.8,0.2
+                pos_hint:{'center_x':0.5, 'y':0.3}
+                GridLayout:
+                    cols:2
+                    Label:
+                        text:'name'
+                        font_size:30
+                        bold:True
+                        outline_color:(0,0,0)
+                        outline_width:5
+                        color:(130/255,1,10/255,1)
+                        canvas.before:
+                            Color:
+                                rgba:(0,1,1,1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                    TextInput:
+                        multiline:False
+                        id:name
+                        background_color:(1,1,0,1)
+                Button:
+                    text:'submit'
+                    pos_hint:{'center_x':0.5,'center_y':0.5}
+                    background_color:(1,1,130/225,1)
+                    on_press: root.press()
+                Button:
+                    text:'clear'
+                    pos_hint:{'center_x':0.5,'center_y':0.5}
+                    background_color:(1,0,240/225,1)
+                    on_press: root.clear()
+                Button:
+                    text:'next'
+                    pos_hint:{'center_x':0.5,'center_y':0.5}
+                    background_color:(0,0,240/225,1)
+                    on_press: root.next()
+                    
+<play>:
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width, root.height
+        Label:
+            text:'congrats to you, you finally made it!!'
+            italic:True
+            bold: True
+            font_size:25
+            outline_color:(0,0,0)
+            outline_width:10
+            color: (15/255,1,188/255,1)
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            size_hint: 0.5,0.3
+            canvas.before:
+                Color:
+                    rgba: (200/255,240/255,1,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+

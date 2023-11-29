@@ -1,0 +1,84 @@
+#:kivy 2.1.0
+<Button>:
+    pos_hint:{'center_x':0.5,'center_y':0.5}
+    size_hint:0.4,0.2
+    background_color:(130/225,240/255,0,1)
+<label>:
+    font_size:25
+    bold:True
+    italic:True
+    outline_color:(0,0,0)
+    outline_width:5
+    color:(1,144/255,10/255,1)
+<main>:
+    BoxLayout:
+        orientation:'horizontal'
+        padding:10
+        spacing:10
+        size: root.width,root.height
+        FloatLayout:
+            id:warp
+            canvas.before:
+                Color:
+                    rgba:(0,240/225,180/225,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            GridLayout:
+                cols:1
+                size_hint:0.6,0.2
+                pos_hint:{'center_x':0.5,'y':0.5}
+                GridLayout:
+                    cols:2
+                    size_hint:0.8,0.3
+                    Label:
+                        text:'input user'
+                        canvas.before:
+                            Color:
+                                rgba:(200/255,240/255,1,1)
+                            Rectangle:
+                                size:self.size
+                                pos: self.pos
+                    TextInput:
+                        id:name
+                        multiline:False
+                        background_color: (200/255,240/255,1,1)
+                Button:
+                    text:'submit'
+                    on_press: root.press()
+                    bold:False
+                    outline_width:0
+                Button:
+                    text:'next'
+                    on_press: root.next()
+                    size_hint:0.3,0.3
+                    bold:False
+                    outline_width:0
+            Button:
+                text:'reset'
+                size_hint:0.1,0.1
+                on_press: root.reset()
+                pos_hint:{'x':0,'y':0}
+                bold:False
+                outline_width:0
+<play>:
+    BoxLayout:
+        orientation:'horizontal'
+        size:root.width, root.height
+        FloatLayout:
+            id:wrap
+            Label:
+                id:tes
+                text:'thanks for playing'
+                pos_hint:{'center_x':10,'center_y':0.5}
+                canvas.before:
+                    Color:
+                        rgba: (200/255,240/255,1,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Button:
+                text:'>'
+                id:m_right
+                on_press:root.click()
+                pos_hint:{'y':0}

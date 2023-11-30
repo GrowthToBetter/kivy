@@ -37,17 +37,33 @@ class main(Screen):
 class play(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
-
+        self.thing=self.ids.Box
+        self.pos_x=self.thing.x
+        self.pos_y=self.thing.y
+        
     def click(self):
-        animation= Animation(duration=1,
-                             pos_hint={'center_x':0.5})
-        return animation.start(self.ids.tes)
+        if self.pos_x>=0.9 :
+            self.pos_x=-0.1
+            self.manager.current='win'
+        # if self.pos_y>=0.9:
+        #     self.pos_y=-0.1
+        
+        self.pos_x +=0.1
+        animation= Animation(duration=0.001,
+                             pos_hint={'x':self.pos_x,'y':self.pos_y})
+        return animation.start(self.thing)
+
+class win(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
 
 class app(App):
     def build(self):
         self.manage=ScreenManager()
         self.manage.add_widget(main(name='main'))
         self.manage.add_widget(play(name='play'))
+        self.manage.add_widget(win(name='win'))
         return self.manage
 
 if __name__=='__main__':

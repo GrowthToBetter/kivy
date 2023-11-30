@@ -67,18 +67,49 @@
         size:root.width, root.height
         FloatLayout:
             id:wrap
+            canvas.before:
+                Color:
+                    rgba: (200/255,240/255,1,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
             Label:
-                id:tes
-                text:'thanks for playing'
-                pos_hint:{'center_x':10,'center_y':0.5}
+                id:Box
+                size_hint:0.1,0.1
+                pos_hint:{'x':0,'y':0}
+                text:''
                 canvas.before:
                     Color:
-                        rgba: (200/255,240/255,1,1)
-                    Rectangle:
+                        rgba:(1,0,0,1)
+                    Rectangle: 
                         size: self.size
                         pos: self.pos
             Button:
                 text:'>'
                 id:m_right
                 on_press:root.click()
-                pos_hint:{'y':0}
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                size_hint:0.1,0.1
+
+<win>:
+    BoxLayout:
+        orientation:'horizontal'
+        size:root.width, root.height
+        FloatLayout:
+            id:wrapper
+            canvas.before:
+                Color:
+                    rgba: (200/255,240/255,1,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Label:
+                text:'THANKS FOR PLAYING'
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                canvas.before:
+                    Color:
+                        rgba:(250/255,190/255,1,1)
+                    Rectangle: 
+                        size: self.size
+                        pos: self.pos

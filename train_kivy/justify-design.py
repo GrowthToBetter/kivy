@@ -40,19 +40,21 @@ class play(Screen):
         self.thing=self.ids.Box
         self.pos_x=self.thing.x
         self.pos_y=self.thing.y
-        
-    def click(self):
+        self.animation_motion= Animation(duration=15,
+        pos_hint={'x':1,'y':self.pos_y})+ Animation(duration=0.001,
+        pos_hint={'x':0,'y':self.pos_y})
         if self.pos_x>=0.9 :
             self.pos_x=-0.1
-            self.manager.current='win'
-        # if self.pos_y>=0.9:
-        #     self.pos_y=-0.1
-        
-        self.pos_x +=0.1
-        animation= Animation(duration=0.001,
-                             pos_hint={'x':self.pos_x,'y':self.pos_y})
-        return animation.start(self.thing)
-
+            # self.manager.current='win'
+        if self.pos_y>=0.9:
+            self.pos_y=-0.1
+        self.animation_motion.repeat=True
+        self.animation_motion.start(self.thing)
+    def click(self):
+        self.animation=Animation(duration=0.3,
+                pos_hint={'y':0.1})+Animation(duration=0.2,
+                pos_hint={'y':0})
+        self.animation.start(self.thing)
 class win(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)

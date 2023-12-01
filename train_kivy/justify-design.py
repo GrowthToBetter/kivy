@@ -41,13 +41,12 @@ class play(Screen):
         self.pos_x=self.thing.x
         self.pos_y=self.thing.y
         self.animation_motion= Animation(duration=15,
-        pos_hint={'x':1,'y':self.pos_y})+ Animation(duration=0.001,
+        pos_hint={'x':1,'y':self.pos_y})+ Animation(duration=0,
         pos_hint={'x':0,'y':self.pos_y})
-        if self.pos_x>=0.9 :
-            self.pos_x=-0.1
-            # self.manager.current='win'
-        if self.pos_y>=0.9:
-            self.pos_y=-0.1
+        # if self.pos_x>=0.9 :
+        #     self.pos_x=-0.1
+        # if self.pos_y>=0.9:
+        #     self.pos_y=-0.1
         self.animation_motion.repeat=True
         self.animation_motion.start(self.thing)
     def click(self):
@@ -55,10 +54,20 @@ class play(Screen):
                 pos_hint={'y':0.1})+Animation(duration=0.2,
                 pos_hint={'y':0})
         self.animation.start(self.thing)
+
+    def next(self):
+        self.manager.current='win' 
+
+    def previous(self):
+        self.manager.current='main'   
 class win(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
+    def next(self):
+        self.manager.current='main' 
 
+    def previous(self):
+        self.manager.current='play'  
 
 class app(App):
     def build(self):

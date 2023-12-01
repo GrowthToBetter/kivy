@@ -12,7 +12,7 @@
     color:(1,144/255,10/255,1)
 <main>:
     BoxLayout:
-        orientation:'horizontal'
+        orientation:'vertical'
         padding:10
         spacing:10
         size: root.width,root.height
@@ -85,11 +85,26 @@
                         size: self.size
                         pos: self.pos
             Button:
+                text:'/'
+                id:m_right
+                on_press:root.previous()
+                pos_hint:{'x':0.9,'y':0.9}
+                size_hint:0.1,0.1
+                background_color: (0,0,0,0)
+                color:(0,0,1,1)
+            Image: 
+                source:'picture/bg.jpg'
+                keep_ratio: True
+                allow_stretch: True    
+            Button:
                 text:'>'
                 id:m_right
-                on_press:root.click()
+                font_size:60
+                on_press:root.next()
+                color:(0,0,1,1)
                 pos_hint:{'center_x':0.5,'center_y':0.5}
                 size_hint:0.1,0.1
+                background_color: (0,0,0,0)
 
 <win>:
     BoxLayout:
@@ -113,3 +128,18 @@
                     Rectangle: 
                         size: self.size
                         pos: self.pos
+            Button:
+                text:'/'
+                id:m_right
+                on_press:root.previous()
+                pos_hint:{'x':0.9,'y':0.9}
+                size_hint:0.1,0.1
+                background_color:(0,0,0,0)
+            Button:
+                text:'>'
+                font_size:60
+                id:m_right
+                on_press:root.next()
+                pos_hint:{'center_x':0.5,'center_y':0.1}
+                size_hint:0.1,0.1
+                background_color:(0,0,0,0)

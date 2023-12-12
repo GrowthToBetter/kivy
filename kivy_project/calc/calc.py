@@ -18,20 +18,23 @@ class main(Screen):
     mode='main'
     def __init__(self, **kw):
         super().__init__(**kw)
-        self.press()
     def press(self):
         self.name=self.ids.name.text
         self.password=self.ids.password.text
-        self.animation=Animation(duration=0.5,opacity=0)+Animation(duration=1, opacity=1)+Animation(duration=1,opacity=0)
+        self.animation=Animation(duration=0.5, opacity=1)+Animation(duration=1,opacity=0)
         if self.name =='bara' and self.password=='1':
             self.manager.current='calc'
             self.ids.name.text=''
             self.ids.password.text=''
+            self.manager.get_screen('calc').ids.logged.opacity=1
             self.animation.start(self.manager.get_screen('calc').ids.logged)
         else:
             self.ids.name.text=''
             self.ids.password.text=''
-            return False
+            self.ids.incorrect.opacity=1
+            animation=Animation(duration=1,opacity=0)
+            animation.start(self.ids.incorrect)
+    
 class calc(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)

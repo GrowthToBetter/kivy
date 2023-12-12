@@ -69,6 +69,14 @@
                         font_size:20
                         pos_hint:{'center_x':0.5,'center_y':0.25}
                         on_release: root.press()
+                    Label:
+                        id:incorrect
+                        size_hint:0.8,0.5
+                        text:'INCORRECT PASSWORD OR ACCOUNT'
+                        color: (1,0,0,1)
+                        font_size:40
+                        opacity:0
+                        pos_hint:{'center_x':0.5,'center_y':0.2}
 <calc>:
     BoxLayout:
         orientation:'vertical'
@@ -139,22 +147,21 @@
                         on_press: root.plus()
                     Button:
                         text:'+/-'
-                        on_press: root.press()
                     Button:
                         text:'0'
                         on_press: root.press(0)
                     Button:
                         text:'.'
-                        on_press: root.press()
                     Button:
                         text:'='
                         on_press: root.equal()
             Label:
                 text:'Log in'
-                pos_hint:{'center_x':0.5, 'y':0.85}
-                size_hint:0.5,0.2
-                font_size:20
+                pos_hint:{'center_x':0.5, 'y':0.45}
+                size_hint:0.8,0.5
+                font_size:40
+                opacity:0
                 bold:True
                 id:logged
-                color:(230/255,165/255,225/255,1)
+                color:(205/255,120/255,200/255,1)
     

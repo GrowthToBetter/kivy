@@ -13,8 +13,8 @@
                 opacity:0.2
                 pos_hint:{'center_x':0.5,'center_y':0.5}
             GridLayout:
-                size_hint: 0.4,0.2
-                pos_hint:{'center_x':0.5,'center_y':0.5}
+                size_hint: 0.8,0.15
+                pos_hint:{'center_x':0.5,'center_y':0.2}
                 cols:1
                 
                 GridLayout:
@@ -93,7 +93,7 @@
                     id:show
                     multiline:False
                     halign: 'right'
-                    text:'0'
+                    text:''
                     font_size:50
                 GridLayout:
                     cols:4
@@ -102,13 +102,13 @@
                         text:'%'
                     Button:
                         text:'Ce'
-                        on_press: root.clear()
+                        on_press: root.clear(1)
                     Button:
                         text:'C'
-                        on_press: root.clear()
+                        on_press: root.clear(2)
                     Button:
                         text:'/'
-                        on_press: root.divide()
+                        on_press: root.sign_math('/')
                     Button:
                         text:'7'
                         on_press: root.press(7)
@@ -120,7 +120,7 @@
                         on_press: root.press(9)
                     Button:
                         text:'x'
-                        on_press: root.multiple()
+                        on_press: root.sign_math('*')
                     Button:
                         text:'4'
                         on_press: root.press(4)
@@ -132,7 +132,7 @@
                         on_press: root.press(6)
                     Button:
                         text:'-'
-                        on_press: root.min()
+                        on_press: root.sign_math('-')
                     Button:
                         text:'1'
                         on_press: root.press(1)
@@ -144,14 +144,16 @@
                         on_press: root.press(3)
                     Button:
                         text:'+'
-                        on_press: root.plus()
+                        on_press: root.sign_math('+')
                     Button:
                         text:'+/-'
+                        on_press: root.negativity()
                     Button:
                         text:'0'
                         on_press: root.press(0)
                     Button:
                         text:'.'
+                        on_press: root.dec()
                     Button:
                         text:'='
                         on_press: root.equal()
@@ -164,4 +166,10 @@
                 bold:True
                 id:logged
                 color:(205/255,120/255,200/255,1)
-    
+
+
+<hide>:
+    BoxLayout:
+        orientation:'vertical'
+        padding:10
+        size:root.width, root.height

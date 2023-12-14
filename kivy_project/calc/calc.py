@@ -12,10 +12,13 @@ from kivy.uix.textinput import TextInput
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.animation import Animation
+from kivy.core.window import Window
+
+Window.size=(500,700)
+
 
 Builder.load_file('calc.kv')
 class main(Screen):
-    mode='main'
     def __init__(self, **kw):
         super().__init__(**kw)
     def press(self):
@@ -40,44 +43,54 @@ class calc(Screen):
         super().__init__(**kw)
     def press(self,button):
         self.prior=self.ids.show
+        if 'Unknown' in self.prior.text:
+            self.ids.show.text=''
         if self.prior.text=='0' :
             self.ids.show.text=f'{button}'
         else:
             self.ids.show.text=f'{self.prior.text}{button}'
-    def clear(self):
-        self.ids.show.text='0'
-    def plus(self):
-        self.ids.show.text=f'{self.prior.text}+'
-    def min(self):
-        self.ids.show.text=f'{self.prior.text}-'
-    def divide(self):
-        self.ids.show.text=f'{self.prior.text}/'
-    def multiple(self):
-        self.ids.show.text=f'{self.prior.text}x'
+    def clear(self,type):
+        if type==1:
+            self.ids.show.text=''
+        if type==2:
+            self.ids.show.text=f'{self.ids.show.text[:-1]}'
+    def sign_math(self,sign):
+        self.sign=sign
+        self.ids.show.text=f'{self.prior.text}{self.sign}'
+    def dec(self):
+        sign=['*','/','+','-']
+        if '.' not in self.ids.show.text:
+            self.ids.show.text=f'{self.ids.show.text}.'
+        for i in sign:
+            if i in self.ids.show.text:
+                list_number=self.ids.show.text.split(i)
+                print(list_number)
+                if i in self.ids.show.text and '.' not in list_number[-1]:
+                    self.ids.show.text=f'{self.ids.show.text}.'
+                    break
+            else:
+                continue
+        
+        
+    def negativity(self):
+        if '-' in self.ids.show.text:
+            self.ids.show.text=f"{self.ids.show.text.replace('-','')}"
+        else:
+            self.ids.show.text=f"-{self.ids.show.text}"
     def equal(self):
         prior=self.prior.text
-        result=0
-        result_2=1
-        if '+' in prior:
-            num= prior.split('+')
-            for number in num:
-                result+= int(number)
-            self.prior.text=str(result)
-        if '-' in prior:
-            num= prior.split('-')
-            for number in num:
-                result-= int(number)
-            self.prior.text=str(result)
-        if '/' in prior:
-            num= prior.split('/')
-            for number in num:
-                result_2 /= int(number)
-            self.prior.text=str(result_2)
-        if 'x' in prior:
-            num= prior.split('x')
-            for number in num:
-                result_2 *= int(number)
-            self.prior.text=str(result_2)
+        if prior=='3347':
+            self.manager.current='hide'
+        else:
+            try:
+                result=eval(self.ids.show.text)
+                self.ids.show.text=str(result)
+            except:
+                self.ids.show.text='Unknown'
+
+class hide(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
 
 
 class app(App):
@@ -85,6 +98,7 @@ class app(App):
         self.screen_manage=ScreenManager()
         self.screen_manage.add_widget(main(name='main'))
         self.screen_manage.add_widget(calc(name='calc'))
+        self.screen_manage.add_widget(hide(name='hide'))
         return self.screen_manage
     
 if __name__=='__main__':

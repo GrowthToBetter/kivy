@@ -1,5 +1,5 @@
 import kivy
-kivy.require('2.1.0')
+kivy.require('2.2.1')
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
 from kivy.uix.floatlayout import FloatLayout
@@ -17,7 +17,7 @@ from kivy.core.window import Window
 Window.size=(500,700)
 
 
-Builder.load_file('calc.kv')
+Builder.load_file('D:/study-coding/kivy+git/kivy/kivy_project/calc/calc.kv')
 class main(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -102,4 +102,7 @@ class app(App):
         return self.screen_manage
     
 if __name__=='__main__':
-    app().run()
+    try:
+        app().run()
+    except:
+        print('apk eror')

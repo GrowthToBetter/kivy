@@ -2,8 +2,8 @@
 from kivy_deps import sdl2, glew
 from PyInstaller.utils.hooks import collect_data_files
 
-a = Analysis(['calc.py', 'calc.kv', 'bg.jpg'],
-             pathex=['D:\\study-coding\\kivy+git\\kivy\\kivy_project\\calc'],
+a = Analysis(['calc.py'],
+             pathex=[('D:\\study-coding\\kivy+git\\kivy\\kivy_project\\calc\\')],
              binaries=[],
              datas=collect_data_files('kivy'),
              hiddenimports=[
@@ -20,6 +20,9 @@ a = Analysis(['calc.py', 'calc.kv', 'bg.jpg'],
 
 pyz = PYZ(a.pure)
 
+a.datas += [('calc\\calc.kv','D:\\study-coding\\kivy+git\\kivy\\kivy_project\\calc\ ','DATA')]
+a.datas += [('calc\\bg.jpg','D:\\study-coding\\kivy+git\\kivy\\kivy_project\\calc\ ','DATA')]
+
 exe = EXE(pyz,
           a.scripts,
           a.binaries,
@@ -27,12 +30,12 @@ exe = EXE(pyz,
           [],
           **{
               'name': 'calc',
-              'debug': False,
-              'bootloader_ignore_signals': False,
+              'debug': True,
+              'bootloader_ignore_signals': True,
               'strip': False,
               'upx': True,
               'upx_exclude': [],
-              'console': False
+              'console': True
           })
 
 coll = COLLECT(exe,
@@ -40,7 +43,7 @@ coll = COLLECT(exe,
                a.binaries,
                a.datas,
                *[Tree(p) for p in (sdl2.dep_bins + glew.dep_bins)],
-               strip=False,
+               strip=True,
                upx=True,
                upx_exclude=[],
                name='calc')

@@ -17,7 +17,7 @@ from kivy.core.window import Window
 Window.size=(500,700)
 
 
-Builder.load_file('D:/study-coding/kivy+git/kivy/kivy_project/calc/calc.kv')
+Builder.load_file('calc.kv')
 class main(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -102,7 +102,4 @@ class app(App):
         return self.screen_manage
     
 if __name__=='__main__':
-    try:
-        app().run()
-    except:
-        print('apk eror')
+    app().run()

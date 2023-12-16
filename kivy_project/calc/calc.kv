@@ -3,13 +3,13 @@
 <main>:
     BoxLayout:
         orientation:'vertical'
-        padding:50
+        padding:10
         size: root.width,root.height
         FloatLayout:
             id:wrap
             Image:
-                source: 'D:/study-coding/kivy+git/kivy/kivy_project/calc/bg.jpg'
-                keep_ratio:True
+                source: 'bg.jpg'
+                allow_stretch: True
                 opacity:0.2
                 pos_hint:{'center_x':0.5,'center_y':0.5}
             GridLayout:

@@ -13,11 +13,12 @@ from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.animation import Animation
 from kivy.core.window import Window
+import os, sys
+from kivy.resources import resource_add_path
 
 Window.size=(500,700)
 
 
-Builder.load_file('calc.kv')
 class main(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -94,12 +95,23 @@ class hide(Screen):
 
 
 class app(App):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        return Builder.load_file(self.add_resource('calc.kv'))
     def build(self):
         self.screen_manage=ScreenManager()
         self.screen_manage.add_widget(main(name='main'))
         self.screen_manage.add_widget(calc(name='calc'))
         self.screen_manage.add_widget(hide(name='hide'))
         return self.screen_manage
-    
+    def add_resource(relative_path):
+        try:
+            base_path=sys._MEIPASS
+        except Exception:
+            base_path=os.path.abspath('.')
+        return os.path.join(base_path, relative_path)
 if __name__=='__main__':
+    if hasattr(sys, "_MEIPASS"):
+        resource_add_path((os.path.join(sys._MEIPASS)))
+    
     app().run()

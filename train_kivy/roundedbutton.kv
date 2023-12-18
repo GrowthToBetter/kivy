@@ -1,0 +1,31 @@
+#:kivy 2.2.1
+<Label>:
+    color:(0,1,1,1)
+    canvas.before:
+        Color:
+            rgba:(180/225,10/225,18/225,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [360]
+
+<Button>:
+    canvas.before:
+        Color:
+            rgba:(0,10/225,0,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [360]
+
+<main>:
+    FloatLayout:
+        Button:
+            id:button1
+            text:'clock me!'
+            on_press: root.press()
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            size_hint:(0.4,0.1)
+            background_normal:''
+            background_color:(0,0,0,0)
+

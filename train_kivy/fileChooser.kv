@@ -1,0 +1,20 @@
+#:kivy 2.2.1
+<main>:
+    BoxLayout:
+        orientation:'horizontal'
+        size: root.width, root.height
+        padding: 10
+        FloatLayout:
+            BoxLayout:
+                orientation:'vertical'
+                size_hint: 1,0.5
+                spacing:10
+                pos_hint:{'center_x':0.5,'y':0}
+                FileChooserIconView:
+                    id:chooser
+                    on_selection: root.select(chooser.selection)
+            Image:
+                id:pict
+                source:''
+                pos_hint:{'center_x':0.5,'center_y':0.7}
+                size_hint: 0.5,0.5  

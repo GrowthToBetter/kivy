@@ -1,0 +1,197 @@
+#:kivy 2.2.1
+<login>:
+    id:login
+    BoxLayout:
+        orientation:'vertical'
+        padding:5
+        size:root.width,root.height
+        FloatLayout:
+            Image:
+                id: wallpaper_login
+                source: 'D:/study-coding/picture/New-Folder/3.jpeg'
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                allow_stretch:True
+                opacity:0.8
+            GridLayout:
+                cols:2
+                pos_hint:{'center_x':0.5,'y':0.1}
+                size_hint_x:None
+                size_hint_y:None
+                width:250
+                height:75
+                GridLayout:
+                    rows:2
+                    GridLayout:
+                        cols:2
+                        Label: 
+                            text:'user'
+                            size_hint:0.2,1
+                            bold:True
+                            font_size: 20
+                        TextInput:
+                            id:name
+                            background_color:(254/255,249/255,245/255,1)
+                    Button:
+                        text:'Login'
+                        background_color:(45/255,43/255,46/255,1)
+                        on_press: root.press()
+
+
+<main>:
+    id:main
+    BoxLayout:
+        orientation:'vertical'
+        padding:5
+        size:root.width,root.height
+        FloatLayout:
+            Label:
+                id:welcome
+                text:''
+                size_hint: 0.3,0.2
+                bold: True
+                opacity:1
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                color: (0,0,0,1)
+                canvas.before:
+                    Color:
+                        rgba: (1,1,1,1)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius:[150]
+            Image:
+                id: wallpaper_main
+                source: 'D:/study-coding/picture/New-Folder/11.jpeg'
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                allow_stretch:True
+                opacity:0.2  
+            Button:
+                id:sett_button
+                text:'s'
+                color:(0,0,0,1)
+                bold:True
+                font_size:35
+                size_hint: 0.1,0.1
+                pos_hint:{'x':0,'y':0.9}
+                background_normal:''
+                background_color:(0,0,0,0)
+                on_press: root.sett()
+                canvas.before:
+                    Color:
+                        rgba: (1,1,1,1)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius:[360]
+            Button:
+                id:sett_button
+                text:'L'
+                color:(0,0,0,1)
+                bold:True
+                font_size:35
+                size_hint: 0.1,0.1
+                pos_hint:{'x':0.9,'y':0.9}
+                background_normal:''
+                background_color:(0,0,0,0)
+                on_press: root.logout()
+                canvas.before:
+                    Color:
+                        rgba: (1,1,1,1)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius:[360]
+            GridLayout:
+                rows:2
+                row_force_default: True
+                col_force_default: True
+                row_default_height: 70
+                col_default_width: 300
+                pos_hint:{'center_x':0.55,'center_y':0}
+                Label:
+                    id:word
+                    text:'say something'
+                    font_size:20
+                GridLayout:
+                    rows:2
+                    TextInput:
+                        id:input
+                        multilline:False
+                        size_hint:0.5,1
+                        pos_hint:{'center_x':0.5,'ceneter_y':0.5}
+                    Button:
+                        text:'enter'
+                        on_press: root.spell()
+                    
+
+
+<setting>:      
+    id:setting
+    BoxLayout:
+        orientation:'vertical'
+        padding:5
+        size:root.width,root.height
+        FloatLayout:
+            Button:
+                text:'change wallpaper'
+                size_hint:0.5,0.1
+                pos_hint:{'center_x':0.3,'center_y':0.7}
+                on_press: root.switch()
+            Button:
+                text:'back'
+                size_hint:0.3,0.1
+                pos_hint:{'center_x':0.8,'center_y':0.7}
+                on_press: root.back()
+            BoxLayout:
+                orientation:'vertical'
+                size_hint_x:None
+                size_hint_y:None
+                width:350
+                height:250
+                padding:10
+                spacing:10
+                pos_hint:{'center_x':0.5,'center_y':0.2}
+                Label:
+                    id:vol
+                    text:'slide to change value'
+                Slider:
+                    min:1
+                    max:100
+                    step:1
+                    orientation:'horizontal'
+                    on_value: root.beta_volume(*args)
+<change_wallpaper>:
+    id:wallpaper
+    BoxLayout:
+        orientation:'horizontal'
+        padding:5
+        size:root.width,root.height
+        FloatLayout:
+            BoxLayout:
+                orientation:'vertical'
+                size_hint_x:None
+                size_hint_y:None
+                width:350
+                height:400
+                padding:10
+                spacing:10
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                Image:
+                    id:preview
+                    source:''
+                    allow_strecth:True
+                    size:1,0.5
+                FileChooserIconView:
+                    size:1,0.5
+                    id: chooser
+                    on_selection:root.preview(chooser.selection)  
+            Button:
+                text:'enter'
+                size_hint:0.3,0.1
+                pos_hint: {'center_x':0.3,'y':0.9}
+                on_press: root.change(chooser.selection)
+            Button:
+                text:'back'
+                size_hint:0.3,0.1
+                pos_hint: {'center_x':0.8,'y':0.9}
+                on_press: root.back()

@@ -23,12 +23,18 @@ class login(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
     def press(self):
-        self.animation=Animation(duration=0, opacity=1)+Animation(duration=1, opacity=0)+Animation(duration=1, opacity=1)+Animation(duration=2,opacity=0)
+        self.animation_login()
         self.manager.current='main'
+        with open('train_kivy/tryEverything.txt','w') as file:
+            file.write(f'{self.ids.name.text}')
+        self.ids.name.text=''
+    def animation_login(self):
+        self.animation=Animation(duration=0, opacity=1)+Animation(duration=1, opacity=0)+Animation(duration=1, opacity=1)+Animation(duration=2,opacity=0)
         self.manager.get_screen('main').ids.welcome.text=f'WELCOME\n{self.ids.name.text}'
         self.animation.start(self.manager.get_screen('main').ids.welcome)
         self.animation=Animation(duration=8,opacity=0.8)
         self.animation.start(self.manager.get_screen('main').ids.wallpaper_main)
+
 class setting(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -61,6 +67,8 @@ class main(Screen):
         self.manager.current='setting'
     def logout(self):
         self.manager.current='login'
+        with open('train_kivy/tryEverything.txt','w') as file:
+            file.write('')
     def spell(self):
         s=Spelling()
         word=self.ids.input.text
@@ -75,20 +83,28 @@ class main(Screen):
         except:
             self.ids.word.text='text was empty'
         
-        
 class app(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.animation= Animation(duration=0, opacity=1)+Animation(duration=1, opacity=0)+Animation(duration=1, opacity=1)+Animation(duration=2,opacity=0)
         return Builder.load_file('tryEverything.kv')
     def build(self):
         self.sm = ScreenManager()
         self.sm.add_widget(login(name='login'))
+        self.sm.add_widget(main(name='main'))
         self.sm.add_widget(setting(name='setting'))
         self.sm.add_widget(change_wallpaper(name='change_wallpaper'))
-        self.sm.add_widget(main(name='main'))
-        return self.sm
-    
+        with open('train_kivy/tryEverything.txt','r') as file:
+            if file.read()=='':
+                self.sm.current='login'
+            else:
+                self.sm.current='main'
+                self.sm.get_screen('main').ids.welcome.text=f'WELCOME \nBACK!!'
+                self.animation.start(self.sm.get_screen('main').ids.welcome)
+                self.animation=Animation(duration=8,opacity=0.8)
+                self.animation.start(self.sm.get_screen('main').ids.wallpaper_main)
+            return self.sm     
 if __name__=='__main__':
     app().run()
-
+    
 

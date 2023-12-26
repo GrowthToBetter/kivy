@@ -15,7 +15,8 @@ class main(Screen):
 class pop(Popup):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
+    # def close(self): 
+    #     self.dismiss()  jika auto dismiss false, maka harus menggunakan function
 class app(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

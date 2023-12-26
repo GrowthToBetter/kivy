@@ -1,0 +1,24 @@
+#:kivy 2.2.1
+
+<main>:
+    BoxLayout:
+        orientation:'vertical'
+        size: root.width, root.height
+        padding:10
+        spacig:10
+        FloatLayout:
+            Label:
+                id:alert
+                text:'who is your waifu?'
+                font_size: 30
+                size_hint: 0.4,0.3
+                pos_hint: {'center_x':0.5, 'center_y':0.8}
+                bold:True
+            Spinner:
+                id:dropdown
+                size_hint:0.6,0.1
+                pos_hint:{'center_x':0.5, 'y':0.1}
+                text:'choose 1 in below'
+                values:['Elaina', 'Emilia', 'im not wibu']
+                on_text: root.press(dropdown.text)
+                

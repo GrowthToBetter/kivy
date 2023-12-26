@@ -26,7 +26,7 @@ class login(Screen):
         self.animation_login()
         self.manager.current='main'
         self.manager.transition= WipeTransition()
-        with open('train_kivy/tryEverything.txt','w') as file:
+        with open('../tryEverything.txt','w') as file:
             file.write(f'{self.ids.name.text}')
         self.ids.name.text=''
     def animation_login(self):
@@ -72,7 +72,7 @@ class main(Screen):
         self.manager.transition= FallOutTransition()
     def logout(self):
         self.manager.current='login'
-        with open('train_kivy/tryEverything.txt','w') as file:
+        with open('../tryEverything.txt','w') as file:
             file.write('')
         self.manager.transition= WipeTransition()
     def spell(self):
@@ -100,7 +100,7 @@ class app(App):
         self.sm.add_widget(main(name='main'))
         self.sm.add_widget(setting(name='setting'))
         self.sm.add_widget(change_wallpaper(name='change_wallpaper'))
-        with open('train_kivy/tryEverything.txt','r') as file:
+        with open('../tryEverything.txt','r') as file:
             if file.read()=='':
                 self.sm.current='login'
             else:

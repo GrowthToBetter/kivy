@@ -13,7 +13,7 @@ from kivy.core.spelling import Spelling
 from kivy.uix.filechooser import FileChooserIconView
 from kivy.lang import Builder
 from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager,Screen
+from kivy.uix.screenmanager import *
 from kivy.core.window import Window
 Window.size=(350,700)
 
@@ -25,6 +25,7 @@ class login(Screen):
     def press(self):
         self.animation_login()
         self.manager.current='main'
+        self.manager.transition= WipeTransition()
         with open('train_kivy/tryEverything.txt','w') as file:
             file.write(f'{self.ids.name.text}')
         self.ids.name.text=''
@@ -42,8 +43,10 @@ class setting(Screen):
         self.ids.vol.text=f'volume {str(int(args[1]))}'
     def back(self):
         self.manager.current='main'
+        self.manager.transition= SwapTransition()
     def switch(self):
         self.manager.current='change_wallpaper'
+        self.manager.transition= FadeTransition()
 class change_wallpaper(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -60,15 +63,18 @@ class change_wallpaper(Screen):
             pass
     def back(self):
         self.manager.current='setting'
+        self.manager.transition= SwapTransition()
 class main(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
     def sett(self):
         self.manager.current='setting'
+        self.manager.transition= FallOutTransition()
     def logout(self):
         self.manager.current='login'
         with open('train_kivy/tryEverything.txt','w') as file:
             file.write('')
+        self.manager.transition= WipeTransition()
     def spell(self):
         s=Spelling()
         word=self.ids.input.text
@@ -89,7 +95,7 @@ class app(App):
         self.animation= Animation(duration=0, opacity=1)+Animation(duration=1, opacity=0)+Animation(duration=1, opacity=1)+Animation(duration=2,opacity=0)
         return Builder.load_file('tryEverything.kv')
     def build(self):
-        self.sm = ScreenManager()
+        self.sm = ScreenManager(transition= WipeTransition())
         self.sm.add_widget(login(name='login'))
         self.sm.add_widget(main(name='main'))
         self.sm.add_widget(setting(name='setting'))

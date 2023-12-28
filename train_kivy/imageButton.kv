@@ -1,0 +1,24 @@
+#:kivy 2.2.1
+
+<main>:
+    FloatLayout:
+        size:root.width, root.height
+        Label:
+            id:say
+            text:'helo'
+            size_hint:0.5,0.5
+            pos_hint:{'center_x':0.5,'center_y':0.7}
+        Button:
+            text:''
+            id:log
+            size_hint:0.2,0.5
+            pos_hint:{'center_x':0.5,'center_y':0.4}
+            on_press:root.press()
+            on_release:root.release()
+            background_color:(0,0,0,0)
+            Image:
+                id:but
+                source:'D:/study-coding/picture/New-Folder/2.jpeg'
+                allow_stretch: True
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y

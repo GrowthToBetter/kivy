@@ -1,0 +1,26 @@
+#:kivy 2.2.1
+
+
+<main>:
+    id:screen
+    FloatLayout:
+        Image:
+            id:img
+            source:'picture/bg.jpg'
+            fit_mode:'contain'
+            opacity:0
+        Label:
+            id:say
+            size_hint: 4,4
+            pos_hint:{'center_x':0.5,'center_y':0.025}
+            text:'wallpaper off'
+            color:(0,1,1,1)
+            font_size:25
+            bold:True
+        
+        Switch:
+            active:False
+            font_size: 10
+            size_hint: 0.3,0.3
+            pos_hint:{'x':.8, 'y':.8}
+            on_active: root.press(self.active)

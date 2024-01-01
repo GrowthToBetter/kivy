@@ -1,0 +1,51 @@
+#:kivy 2.2.1
+
+<main>:
+    MDCard:
+        size_hint:None,None
+        size: 350,500
+        pos_hint:{'center_x':0.5,'center_y':0.5}
+        elevation:10
+        padding:5
+        spacing:10
+        orientation:'vertical'
+        md_bg_color:app.theme_cls.primary_dark
+        MDLabel:
+            id: say
+            text:'LOGIN SCREEN'
+            font_size: 20
+            size_hint_y: None
+            halign:'center'
+            height: self.texture_size[1]
+            padding_y:30
+        Widget:
+            size_hint_y:None
+            height:75 
+        MDTextFieldRound:
+            id:user
+            hint_text:'username'
+            icon_left:'at'
+            size_hint_x:None
+            width:200
+            halign:'center'
+            font_size:20
+            pos_hint:{'center_x':0.5}
+        MDTextFieldRound:
+            id:pw
+            hint_text:'password'
+            icon_left:'eye-off'
+            size_hint_x:None
+            width:200
+            halign:'center'
+            font_size:20
+            pos_hint:{'center_x':0.5}
+            password:True
+        MDRoundFlatButton:
+            text:'Login'
+            font_size:30
+            pos_hint:{'center_x':0.5}
+            on_press: root.press()
+            on_release: root.clear()
+        Widget:
+            size_hint_y:None
+            height:75 

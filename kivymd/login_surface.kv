@@ -1,0 +1,42 @@
+#:kivy 2.2.1
+MDScreen:
+    name:'surface'
+    MDCard:
+        size_hint:None,None
+        size: 400,600
+        pos_hint:{'center_x':0.5,'center_y':0.5}
+        elevation:10
+        padding:5
+        spacing:10
+        orientation:'vertical'
+        md_bg_color: app.theme_cls.primary_dark
+        FloatLayout:
+            size:root.width,root.height
+            Image:
+                source:'picture/2.png'
+                fit_mode:'contain'
+                opacity:0.5
+            Label:
+                text:'L a n g u a g e  :  E n'
+                size_hint:0.085,0.085
+                pos_hint:{'x':0.5,'center_y':.95}
+            MDLabel:
+                id:welcome
+                text:'W E L C O M E'
+                font_size: 20
+                size_hint_y: None
+                halign:'center'
+                height: self.texture_size[1]
+                padding_y:30
+            MDRectangleFlatButton:
+                text:'L O G I N'
+                color:(1,1,1,1)
+                bold:True
+                font_size:'30sp'
+                size_hint: 0.5,0.1
+                pos_hint: {'center_x':0.5,'center_y':0.18}
+                on_release: 
+                    root.manager.transition.direction='left'
+                    root.manager.current='signup'
+
+            

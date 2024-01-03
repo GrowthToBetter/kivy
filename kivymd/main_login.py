@@ -10,14 +10,13 @@ class main(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
     def build(self):
+        self.theme_cls.theme_style='Dark'
+        self.theme_cls.primary_palette='LightBlue'
+        self.theme_cls.accent_palette='Indigo'
         self.screen_manager=ScreenManager()
         self.screen_manager.add_widget(Builder.load_file('login_surface.kv'))
         self.screen_manager.add_widget(Builder.load_file('login_signup.kv'))
         self.screen_manager.add_widget(Builder.load_file('login_main.kv'))
-        self.theme_cls.theme_style='Dark'
-        self.theme_cls.primary_palette='LightBlue'
-        self.screen_manager.get_screen('signup').ids.sign_button.theme_text_color = "Custom"
-        self.screen_manager.get_screen('signup').ids.sign_button.text_color = (0.29, 0.33, 0.42, 1)
         return self.screen_manager
     def signup(self):
         if self.screen_manager.get_screen('signup').ids.user.text !='' and self.screen_manager.get_screen('signup').ids.password.text !='':

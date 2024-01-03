@@ -36,7 +36,7 @@ MDScreen:
                 halign:'center'
             MDTextFieldRound:
                 id:user
-                color_active:(240,240,1,1)
+                color_active:(240/255,240/255,1,1)
                 normal_color:(0,0,0,0)
                 opacity:1
                 icon_right: 'account'
@@ -48,7 +48,7 @@ MDScreen:
                 pos_hint:{'center_x':0.5,'center_y':0.3}
             MDTextFieldRound:
                 id:password
-                color_active:(240,240,1,1)
+                color_active:(240/255,240/255,1,1)
                 normal_color:(0,0,0,0)
                 opacity:1
                 icon_right:'eye-off'
@@ -64,6 +64,7 @@ MDScreen:
                 text:' S I G N  U P'
                 bold:True
                 font_size:'30sp'
+                line_color:(1,1,1,1)
                 size_hint: 0.5,0.1
                 pos_hint: {'center_x':0.5,'center_y':0.1}
                 on_release: app.signup()

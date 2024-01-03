@@ -1,20 +1,20 @@
 #:kivy 2.2.1
 MDScreen:
     name:'main'
-    MDCard:
-        size_hint:None,None
-        size: 400,600
-        pos_hint:{'center_x':0.5,'center_y':0.5}
-        elevation:10
-        padding:5
-        spacing:10
+    MDBoxLayout:
         orientation:'vertical'
-        md_bg_color: app.theme_cls.primary_dark
+        MDToolbar:
+            title:'M E N U'
+            left_action_items:[['menu']]
+            right_action_items:[['dots-vertical']]
+            pos_hint:{'center_x':0.5,'center_y':0.5}
         FloatLayout:
             size:root.width,root.height
             Image:
                 source:'picture/1.png'
                 opacity:0.5
+                size_hint:1,1
+                pos_hint:{'center_x':0.5,'center_y':0.5}
             MDIconButton:
                 icon:'arrow-left'
                 pos_hint:{'center_x':0.08,'center_y':0.95}
@@ -24,22 +24,19 @@ MDScreen:
             MDLabel:
                 text:
                     """
-                    [b]W E L C O M E  T O  O U R  A P P ![/b] \n\n
-
-
-
-                    now i wanna tell you about our app, \n
-                    that is myapp to try kivymd, \n
+                    [b] W E L C O M E  T O  O U R  A P P ![/b] \n\n
+                    now i wanna tell you about our app \n
+                    that is myapp to try kivymd \n
                     my name is Jean Richnerd RantabaraTrahjaga\n
-                    the creator of this app, \n
+                    the creator of this app \n
                     i hope that this app can be my portfolio \n\n
-
-
-
-
                     T H A N K  F O R  O U R  T I M E ! !
-
                     """
                 markup:True
                 font_size:18
-                pos_hint:{'center_x':0.5,'center_y':0.5}
+                pos_hint:{'center_x':.55,'center_y':0.5}
+        MDBottomAppBar:
+            MDToolbar:
+                icon: 'access-point'
+                type:'bottom'
+                mode:'free-end'

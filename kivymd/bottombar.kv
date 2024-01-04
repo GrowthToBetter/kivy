@@ -1,0 +1,23 @@
+#:kivy 2.2.1
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id:top_bar
+            title:'A P P'
+            left_action_items:[['menu', lambda x: app.press('menu')]]
+            right_action_items:[['dots-vertical', lambda x: app.press('dots-vertical')]]
+        MDLabel:
+            id:say
+            text:'just try mdbottomappbar'
+            halign:'center'
+        MDBottomAppBar:
+            MDToolbar:
+                icon:'access-point'
+                # mode:'free-end'
+                # mode:'end'
+                mode:'center'
+                # mode:'free-center'
+                type:'bottom'
+                on_action_button: app.press('access-point')

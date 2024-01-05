@@ -1,0 +1,17 @@
+#:kivy 2.2.1
+MDScreen:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title:'M E N U'
+            left_action_items:[['menu']]
+            right_action_items:[['dots-vertical']]
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'main'
+                text:'main'
+                icon:'abjad-hebrew'
+                MDRaisedButton:
+                    text:'press me'
+                    pos_hint:{'center_x':0.5,'center_y':0.5}
+                    on_press:app.call()

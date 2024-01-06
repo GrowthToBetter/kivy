@@ -5,7 +5,9 @@ from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 from kivy.animation import Animation
 from kivymd.uix.menu import MDDropdownMenu
-
+from kivy.resources import resource_add_path
+import sys
+import os
 class main(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -14,9 +16,9 @@ class main(MDApp):
         self.theme_cls.primary_palette='LightBlue'
         self.theme_cls.accent_palette='Indigo'
         self.screen_manager=ScreenManager()
-        self.screen_manager.add_widget(Builder.load_file('login_surface.kv'))
-        self.screen_manager.add_widget(Builder.load_file('login_signup.kv'))
-        self.screen_manager.add_widget(Builder.load_file('login_main.kv'))
+        self.screen_manager.add_widget(Builder.load_file(self.resource_path('login_surface.kv')))
+        self.screen_manager.add_widget(Builder.load_file(self.resource_path('login_signup.kv')))
+        self.screen_manager.add_widget(Builder.load_file(self.resource_path('login_main.kv')))
         text=['back to home', 'Log Out']
         menu=[{
             'text':text[i],
@@ -39,6 +41,12 @@ class main(MDApp):
             self.screen_manager.transition.direction='right'
             self.screen_manager.current='signup'
             self.menu.dismiss()
+    def resource_path(self , relative_path):
+        try:
+            base_path=sys._MEIPASS
+        except Exception:
+            base_path=os.path.abspath('kivy_project/SearchItem/')
+        return os.path.join(base_path, relative_path)
     def signup(self):
         if self.screen_manager.get_screen('signup').ids.user.text !='' and self.screen_manager.get_screen('signup').ids.password.text !='':
             self.screen_manager.transition.direction='left'
@@ -50,4 +58,6 @@ class main(MDApp):
             animation= Animation(duration=1, opacity=0)
             animation.start(self.screen_manager.get_screen('signup').ids.alert)
 if __name__=='__main__':
+    if hasattr(sys, "_MEIPASS"):
+        resource_add_path((os.path.join(sys._MEIPASS)))
     main().run()

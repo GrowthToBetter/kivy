@@ -1,0 +1,26 @@
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            id:menu
+            title:'M E N U'
+            left_action_items:[['menu', lambda x: app.menu.open()]]
+            right_action_items:[['dots-vertical']]
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'main'
+                text:'main'
+                icon:'magnify-plus'
+                FloatLayout:
+                    id:wrap
+                    MDLabel:
+                        id:say
+                        text: "helow"
+                        font_size:18
+                        halign:'center'
+                        pos_hint:{'center_x':.55,'center_y':0.5}
+                    MDFloatingActionButtonSpeedDial:
+                        data: app.data
+                        root_button_anim: True

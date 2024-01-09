@@ -1,5 +1,6 @@
 #:kivy 2.2.1
 MDScreen:
+    name:'main'
     MDBoxLayout:
         orientation: 'vertical'
         MDToolbar:
@@ -15,3 +16,8 @@ MDScreen:
                     text:'press me'
                     pos_hint:{'center_x':0.5,'center_y':0.5}
                     on_press:app.call()
+                MDLabel:
+                    id:say
+                    text: "welcome"
+                    halign:'center'
+                    pos_hint:{'center_x':0.5,'center_y':0.2}

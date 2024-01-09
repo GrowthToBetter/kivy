@@ -8,8 +8,11 @@ class app(MDApp):
         'Ruby':'language-ruby',
         'JS':'language-javascript'
     }
+
     def build(self):
         self.theme_cls.primary_palette='Amber'
         return Builder.load_file('speeddial.kv')
-    
+    def call(self, num):
+        self.root.ids.say.text = f'You pressed {num.icon}'
+
 app().run()

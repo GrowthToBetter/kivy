@@ -1,0 +1,44 @@
+#:kivy 2.2.1
+# <IMG@MDSwiperItem>:
+
+#     FitImage:
+#         radius:[20,]
+#         source:'d:/study-coding/picture/New-Folder/1.jpeg'
+        
+MDScreen:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id:menu
+            title:'M E N U'
+            left_action_items:[['menu']]
+            right_action_items:[['dots-vertical']]
+            pos_hint: {'top': 1}
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'main'
+                text:'main'
+                icon:'abacus'
+                FloatLayout:
+                    MDSwiper:
+                        id:swip
+                        size_hint_y:None
+                        height: root.height - menu.height- dp(40)
+                        y: root.height - self.height - menu.height - dp(20)
+                        # IMG:
+                        # IMG:
+                        # IMG:
+                        # IMG:
+                        # IMG:
+                    MDRectangleFlatButton:
+                        text:'show image'
+                        pos_hint:{'center_x':0.5, 'center_y':0.1}
+                        size_hint: 0.3, 0.3
+                        on_press: app.press()
+            MDBottomNavigationItem:
+                name:'chose'
+                text:'chose'
+                icon:'shuffle'
+                FileChooserListView:
+                    id:choose
+                    on_selection: app.select(choose.selection)

@@ -1,0 +1,20 @@
+#:kivy 2.2.1
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id:menu
+            title:' M E N U'
+            left_action_items:[['menu']]
+            right_action_items:[['dots-vertical']]
+        MDFloatLayout:
+            MDRaisedButton:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                text:'date'
+                on_press:app.click()
+            MDLabel:
+                id:say
+                text: "just nothing"
+                halign:'center'
+                pos_hint: {'center_x': 0.5,'center_y': 0.45}

@@ -1,6 +1,6 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
-from kivymd.uix.picker import MDDatePicker
+from kivymd.uix.picker import MDDatePicker, MDTimePicker
 
 class main(MDApp):
     def build(self):
@@ -16,5 +16,12 @@ class main(MDApp):
         self.date= MDDatePicker(mode='range')
         self.date.bind(on_save=self.ok, on_cancel=self.cancel)
         self.date.open()
-
+    def press(self):
+        self.time=MDTimePicker()
+        self.time.bind(on_cancel=self.canc, time=self.get)
+        self.time.open()
+    def canc(self, obj, time):
+        self.root.ids.say.text='cancel time'
+    def get(self, obj, time):
+        self.root.ids.say.text=f'{str(time)}'
 main().run()

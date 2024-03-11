@@ -1,0 +1,66 @@
+#:kivy 2.2.1
+
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id:menu
+            title:' M   E   N   U'
+            left_action_items:[['menu', lambda x: app.descrip.open()]]
+            right_action_items: [['dots-vertical']]
+        MDBottomNavigation:
+            id:navbar
+            MDBottomNavigationItem:
+                name:'home'
+                text: 'home'
+                icon: 'home'
+                FloatLayout:
+                    id:plyer
+                    TextInput:
+                        id:input
+                        size_hint: 0.3,0.2
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    TextInput:
+                        id:input2
+                        size_hint: 0.3,0.2
+                        pos_hint: {'center_x': 0.5,'center_y': 0.45}
+                    MDRectangleFlatButton:
+                        text:'submit'
+                        size_hint: .3,.3
+                        pos_hint: {'center_x': 0.7,'center_y': 0.2}
+                        on_press: app.submit()
+                    MDRectangleFlatButton:
+                        text:'show'
+                        size_hint: .3,.3
+                        pos_hint: {'center_x': 0.3,'center_y': 0.2}
+                        on_press: app.show()
+                    MDLabel:
+                        id:word
+                        text: ""
+                        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+                        size_hint: .5,.2
+                        background_color:(0,0,0,0)
+
+            MDBottomNavigationItem:
+                name:'data'
+                text: 'data'
+                icon: 'database'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size: root.width,root.height
+                    GridLayout:
+                        cols: 2
+                        size_hint_y:None
+                        height: 50
+                        MDLabel:
+                            id:word1
+                            text: "nama"
+                            halign:'center'
+                        MDLabel:
+                            id:word2
+                            text: "day"
+                            halign:'center'
+                    GridLayout:
+                        id:tabel
+                        cols: 2

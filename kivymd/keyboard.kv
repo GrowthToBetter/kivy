@@ -1,0 +1,34 @@
+#:kivy 2.2.1
+
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id:menu
+            title: 'M   E   N   U'
+            left_action_items:[['menu',lambda x:app.menu.open()]]
+            right_action_items:[['dots-vertical']]
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'home'
+                text:'home'
+                icon:'home'
+                FloatLayout:
+                    MDRoundFlatButton:
+                        text:'Change'
+                        on_press:app.change(app.theme_cls.theme_style)
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        size_hint: .5, .5
+            MDBottomNavigationItem:
+                name:'setting'
+                text:'setting'
+                icon:'settings-helper'
+                GridLayout:
+                    id:vkey
+                    cols:1
+                    MDLabel:
+                        id:word
+                        text: ""
+                        halign:'center'
+

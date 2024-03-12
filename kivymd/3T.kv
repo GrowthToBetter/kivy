@@ -1,0 +1,81 @@
+#:kivy 2.2.1
+<Button>:
+    font_size:60
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title:'M    E   N   U'
+            left_action_items:[['menu', lambda x: app.menu.open()]]
+            right_action_items: [['dots-vertical']]
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'home'
+                text:'home'
+                icon:'home'
+                GridLayout:
+                    cols:3
+                    rows:3
+                    Button:
+                        id:b1
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b2
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b3
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b4
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b5
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b6
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b7
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b8
+                        text: ""
+                        on_press:app.press(self, self.text)
+                    Button:
+                        id:b9
+                        text: ""
+                        on_press:app.press(self, self.text)
+            MDBottomNavigationItem:
+                name:'data'
+                text:'data'
+                icon:'data-matrix'
+                FloatLayout:
+                    
+                    MDLabel:
+                        id:scorex
+                        text: "score x is "
+                        halign:'center'
+                        font_size:20
+                        size_hint: .5, .5
+                        pos_hint: {'center_x': 0.7,'center_y': 0.7}
+                    MDLabel:
+                        id:scoreo
+                        text: "score o is "
+                        halign:'center'
+                        font_size:20
+                        size_hint: .5, .5
+                        pos_hint: {'center_x': 0.3,'center_y': 0.7}
+                    MDRoundFlatButton:
+                        text:'referesh'
+                        font_size:20
+                        size_hint:.5, .5
+                        pos_hint: {'center_x': 0.5,'center_y': 0.3}
+                        on_press: app.referesh()

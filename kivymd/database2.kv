@@ -1,0 +1,29 @@
+#:kivy 2.2.1
+
+MDScreen:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id:menu 
+            title:'M    E   N   U'
+            left_action_items:[['menu',lambda x:app.menu.open()]]
+            right_action_items:[['dots-vertical']]
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'homepage'
+                text:'welcome'
+                icon:'home'
+                FloatLayout:
+                    Image:
+                        source:'D:/study-coding/picture/New-Folder/1.jpeg'
+                        fit_mode:'contain'
+            MDBottomNavigationItem:
+                name:'data'
+                text:'data'
+                icon:'database'
+                BoxLayout:
+                    id:word
+                    orientation: 'vertical'
+                    spacing:0
+                    padding:0 

@@ -1,0 +1,36 @@
+#:kivy 2.2.1
+<Label>:
+    outline_width:1.5
+    outline_color:(0,0,0,1)
+MDScreen:
+    name:'Login'
+    MDCard:
+        size_hint:None, None
+        size: root.width, root.height
+        spacing:10
+        elevation:10
+        padding:5
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        md_bg_color: app.theme_cls.primary_dark
+        FloatLayout:
+            Image:
+                source: "./picture/1.png"
+                allow_stretch:True
+                fit_mode:'contain'
+                opacity: 0.7
+            MDLabel:
+                halign:'center'
+                text:'C L I C K  ENTER  T O  C O N T I N U E'
+                pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                font_size:25
+                bold: True
+                theme_text_color:'Custom'
+                text_color: app.theme_cls.primary_color
+            MDRoundFlatButton:
+                text:'E N T E R '
+                pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                size_hint: .4, .1
+                font_size: '30sp'
+                line_color:(0,0,0,1)
+                theme_text_color:'Custom'
+                text_color:app.theme_cls.primary_color

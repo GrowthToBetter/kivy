@@ -1,6 +1,6 @@
 #:kivy 2.2.1
 <Label>:
-    outline_width:1.5
+    outline_width:1
     outline_color:(0,0,0,1)
 MDScreen:
     name:'Login'
@@ -25,7 +25,14 @@ MDScreen:
                 font_size:25
                 bold: True
                 theme_text_color:'Custom'
-                text_color: app.theme_cls.primary_color
+                text_color: (0,201/255,197/255,1)
+            MDLabel:
+                halign:'center'
+                text:'Copyright: github.com/GrowthToBetter'
+                icon:'copyright'
+                pos_hint: {'center_x': 0.18,'y': 0.48}
+                font_size:15
+                outline_width:0
             MDRoundFlatButton:
                 text:'E N T E R '
                 pos_hint: {'center_x': 0.5,'center_y': 0.2}
@@ -33,4 +40,6 @@ MDScreen:
                 font_size: '30sp'
                 line_color:(0,0,0,1)
                 theme_text_color:'Custom'
-                text_color:app.theme_cls.primary_color
+                text_color:(0,201/255,197/255,1)
+                on_release: root.manager.current='list'
+            

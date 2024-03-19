@@ -11,7 +11,7 @@ class Load(Manage):
 class MyApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.theme_cls.primary_palette='LightBlue'
+        self.theme_cls.primary_palette='Indigo'
 
     def build(self):
         return Load().sm

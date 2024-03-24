@@ -10,8 +10,7 @@ from kivy.core.window import Window
 class Manage(MDScreen):
     def __init__(self, **kwargs):
         self.sm= ScreenManager()
-        self.sm.add_widget(Builder.load_file(self.Resource_path('Fiture/Login.kv')))
-        self.sm.add_widget(Builder.load_file(self.Resource_path('Fiture/list_item.kv')))
+        self.sm.add_widget(Builder.load_file(self.Resource_path('Fiture/surface.kv')))
     def Resource_path(self,Relative_path):
         try:
             Base_path=sys._MEIPASS

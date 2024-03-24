@@ -1,0 +1,91 @@
+#:kivy 2.2.1
+<Label>:
+    outline_width:0
+
+MDScreen:
+    name:'list'
+    MDBoxLayout:
+        orientation: 'vertical'
+        size:root.width, root.height
+        MDToolbar:
+            id:menu
+            title: 'C h i p p i   A P P'
+            left_action_items:[['menu']]
+            right_action_items:[['dots-vertical']]
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name:'home'
+                text:'home'
+                icon:'home'
+                GridLayout:
+                    id:Items_shop
+                    cols:2
+            MDBottomNavigationItem:
+                name:'account'
+                text: 'account'
+                icon:'account'
+                FloatLayout:
+                    MDCard:
+                        padding:10
+                        spacing:5
+                        elevation:20
+                        pos_hint: {'center_x': 0.0,'center_y': 0.5}
+                        orientation: 'vertical'
+                        md_bg_color: app.theme_cls.primary_light
+                        size_hint: None, None
+                        size: 300, 400
+                    MDCard:
+                        padding:10
+                        spacing:5
+                        elevation:20
+                        pos_hint: {'center_x': 1,'center_y': 0.5}
+                        orientation: 'vertical'
+                        md_bg_color: app.theme_cls.primary_light
+                        size_hint: None, None
+                        size: 300, 400
+                    MDCard:
+                        padding:10
+                        spacing:5
+                        elevation:20
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        orientation: 'vertical'
+                        md_bg_color: app.theme_cls.primary_light
+                        size_hint: None, None
+                        size: 300, 460
+                        Image:
+                            source: './picture/3.png'
+                            fit_mode: 'contain'
+                            opacity:.8
+                        MDTextFieldRound:
+                            id:user
+                            hint_text:'Username'
+                            icon_right:'account'
+                            size_hint:None,None
+                            width:250
+                            height:100
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                            
+                        MDTextFieldRound:
+                            id:password
+                            hint_text:'Password'
+                            icon_right:'eye-off'
+                            password:True
+                            size_hint:None,None
+                            width:250
+                            height:100
+                            pos_hint: {'center_x': 0.5,'center_y': 0.43}
+                    MDLabel:
+                        text:' P L E A S E  L O G I N !'
+                        halign:'center'
+                        font_size:20
+                        pos_hint: {'center_x': 0.5,'center_y': 0.94}
+                        size_hint_y:None
+                        height:10
+                    MDLabel:
+                        text: 'before buy something'
+                        halign: 'center'
+                        font_size: 10
+                        pos_hint: {'center_x': 0.5,'center_y': 0.9}
+                        size_hint_y:None
+                        height:10
+

@@ -17,9 +17,56 @@ MDScreen:
                 name:'home'
                 text:'home'
                 icon:'home'
-                GridLayout:
-                    id:Items_shop
-                    cols:2
+                BoxLayout:
+                    orientation:'horizontal'
+                    spacing:2
+                    GridLayout:
+                        id:Items_shop
+                        cols:2
+                        Button:
+                            text:''
+                            on_release:app.Manage.press(1)
+                            Image:
+                                id:itm1
+                                source:'./picture/Item1.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            Image:
+                                source:'./picture/Item2.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            Image:
+                                source:'./picture/Item3.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            Image:
+                                source:'./picture/Item4.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            Image:
+                                source:'./picture/Item5.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            Image:
+                                source:'./picture/Item6.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True        
             MDBottomNavigationItem:
                 name:'account'
                 text: 'account'

@@ -12,7 +12,7 @@ class MyApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.theme_cls.primary_palette='LightBlue'
-
+        self.Manage=Manage()
     def build(self):
         return Load().sm
 

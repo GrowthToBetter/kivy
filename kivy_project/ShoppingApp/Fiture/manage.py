@@ -17,3 +17,5 @@ class Manage(MDScreen):
         except Exception:
             Base_path=os.path.abspath('kivy_project/ShoppingApp/')
         return os.path.join(Base_path, Relative_path)
+    def press(self, definition):
+        print(f'{definition}')

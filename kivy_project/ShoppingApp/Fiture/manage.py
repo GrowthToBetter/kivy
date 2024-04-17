@@ -6,6 +6,16 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.screenmanager import ScreenManager
 import os, sys
 from kivy.core.window import Window
+from kivy.uix.label import Label
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.expansionpanel import (
+    MDExpansionPanel,
+    MDExpansionPanelThreeLine,
+)
+class Content(MDBoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Manage(MDScreen):
     def __init__(self, **kwargs):

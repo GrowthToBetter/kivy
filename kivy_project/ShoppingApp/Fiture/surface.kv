@@ -12,17 +12,6 @@
             md_bg_color: app.theme_cls.primary_light
             size_hint: None, None
             size: 300, 460
-<Conten>:
-    adaptive_height:True
-    Button:
-        text:''
-        on_release:app.Manage.press(1)
-        Image:
-            id:itm1
-            source:'./picture/Item1.jpeg'
-            center_x:self.parent.center_x
-            center_y:self.parent.center_y
-            allow_strech:True
 MDScreen:
     name:'list'
     MDBoxLayout:
@@ -38,63 +27,64 @@ MDScreen:
                 name:'home'
                 text:'home'
                 icon:'home'
-                GridLayout:
-                    id:Items_shop
-                    cols:2
-                    # Button:
-                    #     text:''
-                    #     on_release:app.Manage.press(1)
-                    #     Image:
-                    #         id:itm1
-                    #         source:'./picture/Item1.jpeg'
-                    #         center_x:self.parent.center_x
-                    #         center_y:self.parent.center_y
-                    #         allow_strech:True
-                    # Button:
-                    #     text:''
-                    #     on_release:app.Manage.press(2)
-                    #     Image:
-                    #         id:itm2
-                    #         source:'./picture/Item2.jpeg'
-                    #         center_x:self.parent.center_x
-                    #         center_y:self.parent.center_y
-                    #         allow_strech:True
-                    # Button:
-                    #     text:''
-                    #     on_release:app.Manage.press(3)
-                    #     Image: 
-                    #         id:itm3
-                    #         source:'./picture/Item3.jpeg'
-                    #         center_x:self.parent.center_x
-                    #         center_y:self.parent.center_y
-                    #         allow_strech:True
-                    # Button:
-                    #     text:''
-                    #     on_release:app.Manage.press(4)
-                    #     Image:
-                    #         id: itm4
-                    #         source:'./picture/Item4.jpeg'
-                    #         center_x:self.parent.center_x
-                    #         center_y:self.parent.center_y
-                    #         allow_strech:True
-                    # Button:
-                    #     text:''
-                    #     on_release:app.Manage.press(5)
-                    #     Image:
-                    #         id:itm5
-                    #         source:'./picture/Item5.jpeg'
-                    #         center_x:self.parent.center_x
-                    #         center_y:self.parent.center_y
-                    #         allow_strech:True
-                    # Button:
-                    #     text:''
-                    #     on_release:app.Manage.press(6)
-                    #     Image:
-                    #         id:itm6
-                    #         source:'./picture/Item6.jpeg'
-                    #         center_x:self.parent.center_x
-                    #         center_y:self.parent.center_y
-                    #         allow_strech:True        
+                ScrollView:
+                    MDGridLayout:
+                        id:Items_shop
+                        cols:2
+                        Button:
+                            text:''
+                            on_release:app.Manage.show_price()
+                            Image:
+                                id:itm1
+                                source:'./picture/Item1.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            on_release:app.Manage.show_price()
+                            Image:
+                                id:itm2
+                                source:'./picture/Item2.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            on_release:app.Manage.show_price()
+                            Image: 
+                                id:itm3
+                                source:'./picture/Item3.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            on_release:app.Manage.show_price()
+                            Image:
+                                id: itm4
+                                source:'./picture/Item4.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            on_release:app.Manage.show_price()
+                            Image:
+                                id:itm5
+                                source:'./picture/Item5.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True
+                        Button:
+                            text:''
+                            on_release:app.Manage.show_price()
+                            Image:
+                                id:itm6
+                                source:'./picture/Item6.jpeg'
+                                center_x:self.parent.center_x
+                                center_y:self.parent.center_y
+                                allow_strech:True        
             MDBottomNavigationItem:
                 name:'account'
                 text: 'account'
